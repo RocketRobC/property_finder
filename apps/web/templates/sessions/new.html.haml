@@ -1,11 +1,12 @@
 =form_for :user, routes.sessions_path do
   -div do
-    -label 'Email'
-    -email_field :email
+    -label 'Email', class: 'label'
+    -email_field :email, class: 'input control'
     
   -div do
-    -label 'Password'
-    -text_field :password_plain
+    -label 'Password', class: 'label'
+    -text_field :password_plain, class: 'input control'
 
-  -submit 'Sign In'
+  - div class: 'control' do
+    -submit 'Sign In', class: 'button is-primary'
 
