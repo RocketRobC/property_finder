@@ -15,10 +15,10 @@ Hanami.configure do
     #
     #  * SQL adapter
     #    adapter :sql, 'sqlite://db/property_logger_development.sqlite3'
-    adapter :sql, 'postgresql://localhost/property_logger_development'
+    # adapter :sql, 'postgresql://localhost/property_logger_development'
     #    adapter :sql, 'mysql://localhost/property_logger_development'
     #
-    # adapter :sql, ENV.fetch('DATABASE_URL')
+    adapter :sql, ENV.fetch('DATABASE_URL')
 
     ##
     # Migrations
