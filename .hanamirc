@@ -1,0 +1,3 @@
+project=property_logger
+test=rspec
+template=haml

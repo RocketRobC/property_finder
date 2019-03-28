@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Web</title>
+    <%= stylesheet 'bulma' %>
+    <%= favicon %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <%= render partial: 'shared/nav' %>
+    <div class='section'>
+      <div class='container'>
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>

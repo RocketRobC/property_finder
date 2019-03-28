@@ -1,0 +1,35 @@
+%h1.title= 'New Property'
+
+.section
+  .field
+    .control
+      =form_for :properties, routes.properties_path, values: { features: features, property_features: property_features } do
+        - div do
+          - label 'Street Number', class: 'label'
+          - text_field :street_no, class: 'input control'
+     
+        - div do
+          - label 'Street', class: 'label'
+          - text_field :street_name, class: 'input'
+     
+        - div do
+          - label 'Suburb', class: 'label'
+          - text_field :suburb, class: 'input'
+     
+        - div do
+          - label 'Postcode', class: 'label'
+          - text_field :postcode, class: 'input'
+    
+        - div do
+          - label 'Description', class: 'label'
+          - text_area :description, class: 'input'
+
+        - fields_for :property_features do
+          - features.each do |feature|
+            - fields_for "#{feature.id}" do
+              - label feature.name 
+              - hidden_field :feature_id, value: feature.id
+              - text_field :value
+
+        - div class: 'control' do
+          - submit 'Create Property', class: 'button is-primary'

@@ -1,0 +1,41 @@
+%h1.title= property.address
+
+.section
+  .field
+    .control
+      =form_for :property, routes.property_path(id: property.id), method: :patch, values: { property: property, features: features } do
+        - div do
+          - label 'Street Number', class: 'label'
+          - text_field :street_no, class: 'input control'
+
+        - div do
+          - label 'Street', class: 'label'
+          - text_field :street_name, class: 'input'
+
+        - div do
+          - label 'Suburb', class: 'label'
+          - text_field :suburb, class: 'input'
+
+        - div do
+          - label 'Postcode', class: 'label'
+          - text_field :postcode, class: 'input'
+
+        - div do
+          - label 'Description', class: 'label'
+          - text_area :description, class: 'input'
+
+        - fields_for :property_features do 
+          - features.each do |feature|
+            - fields_for '' do
+              - label feature.name
+              - hidden_field :feature_id, value: feature.id
+              - hidden_field :property_id, value: property.id
+              - text_field :value, value: property.value_for_feature(feature.id)
+
+        - div class: 'control' do
+          - submit 'Update Property', class: 'button is-primary'
+
+
+
+
+

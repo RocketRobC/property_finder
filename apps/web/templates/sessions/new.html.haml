@@ -1,0 +1,11 @@
+=form_for :user, routes.sessions_path do
+  -div do
+    -label 'Email'
+    -email_field :email
+    
+  -div do
+    -label 'Password'
+    -text_field :password_plain
+
+  -submit 'Sign In'
+

@@ -1,0 +1,13 @@
+%p.title.is-4= 'Create a new feature'
+.field
+  =form_for :features, '/features' do
+    - span do
+      - label :name
+      - text_field :name
+  
+    - span do
+      - label :description
+      - text_field :description
+  
+    - div class: 'control' do
+      - submit 'Create Feature'

@@ -1,0 +1,18 @@
+.tile.is-ancestor
+  .tile.is-parent.is-vertical
+    .tile.is-child.box
+      = link_to 'Edit', routes.edit_property_path(property.id), class: 'button is-primary is-pulled-right'
+      %p.title= address
+      %p.subtitle= property.description
+    .tile.is-child.box
+      %p.title.is-4= 'Features'
+      %table.table.is-fullwidth
+        - property.features.each do |feature|
+          %tr
+            %td.has-text-weight-bold= feature.name
+            %td= property_features.value_for_feature(feature.id)
+            %td= property_features.note_for_feature(feature.id)
+
+  .tile.is-parent
+    .tile.is-child.box
+      %p.title= 'Map goes here'

@@ -1,0 +1,3 @@
+RSpec.describe Property, type: :entity do
+  # place your tests here
+end

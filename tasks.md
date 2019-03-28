@@ -1,0 +1,3 @@
+- [ ] validity checks in controllers
+- [ ] move view logic to views
+-

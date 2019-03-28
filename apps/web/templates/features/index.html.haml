@@ -1,0 +1,24 @@
+%h1.title= 'Features'
+
+.section
+  .container
+    =render partial: 'features/new'
+
+.section
+  .container
+    %p.title.is-4= 'Current Features'
+    %table.table.is-hoverable.is-fullwidth  
+      %tr
+        %th= 'Name'
+        %th= 'Description'
+        %th
+      - features&.each do |feature|
+        %tr
+          .feature
+            %td= feature.name
+            %td= feature.description
+            %td
+              =form_for :feature, routes.feature_path(feature.id), method: :delete do
+                -submit 'Delete'
+    
+
