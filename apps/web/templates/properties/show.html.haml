@@ -3,7 +3,8 @@
     .tile.is-child.box
       = link_to 'Edit', routes.edit_property_path(property.id), class: 'button is-primary is-pulled-right'
       %p.title= address
-      %p.subtitle= property.description
+      %p.subtitle= suburb_and_postcode
+      %p= property.description
     .tile.is-child.box
       %p.title.is-4= 'Features'
       %table.table.is-fullwidth
@@ -15,4 +16,4 @@
 
   .tile.is-parent
     .tile.is-child.box
-      %p.title= 'Map goes here'
+      = image property_map

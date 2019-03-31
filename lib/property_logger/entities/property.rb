@@ -3,6 +3,10 @@ class Property < Hanami::Entity
     "#{street_no} #{street_name}"
   end
 
+  def address_underscored
+    "#{street_no}_#{street_name.downcase.sub(' ', '_')}"
+  end
+
   def with_property_feature(id)
     property_features.select { |f| f.feature_id == id }.first
   end
@@ -18,5 +22,17 @@ class Property < Hanami::Entity
 
   def note_for_feature(id)
     with_property_feature(id)&.note
+  end
+
+  def get_map
+    data = { number: street_no, street: street_name,
+             suburb: suburb, postcode: postcode }
+    MapService.new(data).request_image
+  end
+
+  def has_saved_map?
+    File.exists?(File.join(Hanami.root, 'apps', 'web',
+      'assets', 'images',
+      "#{address_underscored}.jpg"))
   end
 end

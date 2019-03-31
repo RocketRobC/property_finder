@@ -1,3 +1,6 @@
 - [ ] validity checks in controllers
 - [ ] move view logic to views
--
+- [ ] criteria model
+- [ ] agent model
+- [ ] rating model
+- [ ] scrape domain for property data
