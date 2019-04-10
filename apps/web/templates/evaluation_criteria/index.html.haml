@@ -1,0 +1,24 @@
+%h1.title= 'Criteria'
+
+.section
+  .container
+    =render partial: 'evaluation_criteria/new'
+
+.section
+  .container
+    %p.title.is-4= 'Criteria'
+    %table.table.is-hoverable.is-fullwidth  
+      %tr
+        %th= 'Name'
+        %th= 'Description'
+        %th= 'Weight'
+        %th
+      - criteria&.each do |crit|
+        %tr
+          .feature
+            %td= crit.name
+            %td= crit.description
+            %td= crit.weight
+            %td
+              =form_for :criteria, routes.evaluation_criterium_path(crit.id), method: :delete do
+                -submit 'Delete'

@@ -5,7 +5,13 @@
         =link_to 'Property Finder', routes.root_path, class: 'navbar-item'
     .navbar-start
       =link_to 'Properties', routes.properties_path, class: 'navbar-item'
-      =link_to 'Features', routes.features_path, class: 'navbar-item'
+      .navbar-item.has-dropdown.is-hoverable
+        %a.navbar-link= 'Configuration'
+        .navbar-dropdown
+          .navbar-item
+            =link_to 'Features', routes.features_path
+          .navbar-item
+            =link_to 'Criteria', routes.evaluation_criteria_path
     .navbar-end
       - if current_user
         .navbar-item.is-uppercase.has-text-weight-semibold

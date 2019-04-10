@@ -1,0 +1,33 @@
+%p.title.is-4= 'Create a new criteria'
+=form_for :criteria, '/evaluation_criteria' do
+  - div class: 'field is-horizontal' do
+    - div class: 'field-label is-normal' do
+      - label :name, class: 'label'
+    - div class: 'field-body' do
+      - div class: 'field' do
+        - p class: 'control' do
+          - text_field :name, class: 'input', type: 'text'
+  
+  - div class: 'field is-horizontal' do
+    - div class: 'field-label is-normal' do
+      - label :weight, class: 'label'
+    - div class: 'field-body' do
+      - div class: 'field' do
+        - p class: 'control' do
+          - number_field :weight, class: 'input', type: 'number'
+
+  - div class: 'field is-horizontal' do
+    - div class: 'field-label is-normal' do
+      - label :description, class: 'label'
+    - div class: 'field-body' do
+      - div class: 'field' do
+        - p class: 'control' do
+          - text_area :description, class: 'input', type: 'text'
+
+  - div class: 'field is-horizontal' do
+    - div class: 'field-label is-normal' do
+      - ''
+    - div class: 'field-body' do
+      - div class: 'field' do
+        - p class: 'control' do
+          - submit 'Create Criteria', class: 'button is-primary'

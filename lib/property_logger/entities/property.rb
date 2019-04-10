@@ -35,4 +35,17 @@ class Property < Hanami::Entity
       'assets', 'images',
       "#{address_underscored}.jpg"))
   end
+
+  def ratings_for_user(user_id)
+    ratings = RatingRepository.new
+    ratings.for_property_and_user(id, user_id)
+  end
+
+  def value_for_rating(user_id, evaluation_criteria_id)
+    ratings_for_user(user_id).find { |r| r.evaluation_criteria_id == evaluation_criteria_id }&.value
+  end
+
+  def has_ratings_for?(user_id)
+    !ratings_for_user(user_id).empty?
+  end
 end

@@ -12,4 +12,8 @@ resources :sessions, only: [:new, :create]
 delete 'sessions', to: 'sessions#destroy', as: :session
 
 resources :features
-resources :properties
+resources :properties do
+  resources :ratings
+end
+
+resources :evaluation_criteria

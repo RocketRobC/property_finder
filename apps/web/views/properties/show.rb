@@ -18,5 +18,9 @@ module Web::Views::Properties
     rescue RuntimeError => e
       e.message
     end
+
+    def rating_modal_form
+      Form.new(:property_ratings, "#{property.id}/ratings")
+    end
   end
 end

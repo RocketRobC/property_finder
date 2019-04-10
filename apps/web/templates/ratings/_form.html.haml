@@ -1,0 +1,17 @@
+= form_for rating_modal_form do
+  - section class: 'modal-card-body' do
+    - evaluation_criteria.each do |criteria|
+      -fields_for "#{criteria.id}" do
+        - div class: 'field is-horizontal' do
+          - div class: 'field-label is-normal' do
+            - label criteria.name
+          - div class: 'field-body' do
+            - div class: 'field' do
+              - p class: 'control' do
+                - number_field :value, value: property.value_for_rating(current_user.id, criteria.id), class: 'input'
+          - hidden_field :evaluation_criteria_id, value: criteria.id
+          - hidden_field :user_id, value: current_user.id
+  - footer class: 'modal-card-foot' do
+    - div class: 'buttons' do
+      - submit 'Save', title: 'Save', class: 'button is-primary'
+      - button 'Cancel', title: 'Cancel', class: 'button', id: 'cancel', type: 'reset'

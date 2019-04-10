@@ -1,7 +1,10 @@
 .tile.is-ancestor
   .tile.is-parent.is-vertical
     .tile.is-child.box
-      = link_to 'Edit', routes.edit_property_path(property.id), class: 'button is-primary is-pulled-right'
+      .buttons.is-pulled-right
+        = link_to 'Edit', routes.edit_property_path(property.id), class: 'button is-primary'
+        .button.is-warning#trigger-rating
+          Rate
       %p.title= address
       %p.subtitle= suburb_and_postcode
       %p= property.description
@@ -17,3 +20,7 @@
   .tile.is-parent
     .tile.is-child.box
       = image property_map
+
+=render partial: 'ratings/form_modal'
+
+=javascript 'rating', type: 'text/javascript'
