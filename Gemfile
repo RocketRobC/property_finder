@@ -9,6 +9,8 @@ gem 'pg'
 
 gem 'haml'
 
+gem 'hanami-webpack', github: 'samuelsimoes/hanami-webpack'
+
 group :development do
   # Code reloading
   # See: http://hanamirb.org/guides/projects/code-reloading

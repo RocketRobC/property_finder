@@ -29,5 +29,12 @@
 
 =render partial: 'ratings/form_modal'
 
-=javascript 'rating', type: 'text/javascript'
-=javascript 'rating_data', type: 'text/javascript'
+:javascript
+  window.InitData = [
+    {
+      criteria_description: 'sample',
+    },
+  ];
+
+-# =javascript 'rating', type: 'text/javascript'
+-# =javascript 'rating_data', type: 'text/javascript'
