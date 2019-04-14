@@ -5,6 +5,8 @@ var devServerPort = process.env.WEBPACK_DEV_SERVER_PORT,
   devServerHost = process.env.WEBPACK_DEV_SERVER_HOST,
   publicPath = process.env.WEBPACK_PUBLIC_PATH;
 
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 var config = {
   entry: {
     application: './apps/web/assets/javascripts/application.js',
@@ -14,8 +16,17 @@ var config = {
   module: {
     rules: [
       {
-        test: /\.scss$/,
-        use: ['style-loader', 'css-loader'],
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              hmr: process.env.NODE_ENV === 'development',
+            },
+          },
+          'css-loader',
+          'sass-loader',
+        ],
       },
     ],
   },
@@ -25,7 +36,15 @@ var config = {
     filename: '[name]-[chunkhash].js',
   },
 
-  plugins: [new StatsPlugin('webpack_manifest.json')],
+  plugins: [
+    new StatsPlugin('webpack_manifest.json'),
+    new MiniCssExtractPlugin({
+      // Options similar to the same options in webpackOptions.output
+      // both options are optional
+      filename: '[name].css',
+      chunkFilename: '[id].css',
+    }),
+  ],
 };
 
 if (process.env.INBUILT_WEBPACK_DEV_SERVER) {

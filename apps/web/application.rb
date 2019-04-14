@@ -188,10 +188,12 @@ module Web
         base-uri 'self';
         default-src 'none';
         script-src 'self' 'unsafe-inline' \
-                  https://cdnjs.cloudflare.com;
-        connect-src 'self';
+                  https://cdnjs.cloudflare.com \
+                  http://localhost:3020;
+        connect-src 'self' http://localhost:3020;
         img-src 'self' https: data:;
-        style-src 'self' 'unsafe-inline' https:;
+        style-src 'self' 'unsafe-inline' https: \
+                  http://localhost:3020;
         font-src 'self';
         object-src 'none';
         plugin-types application/pdf;
