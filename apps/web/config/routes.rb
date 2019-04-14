@@ -14,6 +14,9 @@ delete 'sessions', to: 'sessions#destroy', as: :session
 resources :features
 resources :properties do
   resources :ratings
+  member do
+    get 'rating_data'
+  end
 end
 
 resources :evaluation_criteria

@@ -48,4 +48,9 @@ class Property < Hanami::Entity
   def has_ratings_for?(user_id)
     !ratings_for_user(user_id).empty?
   end
+
+  # call on property with associated ratings.
+  def aggregated_ratings
+    PropertyRatingService::RatingData.new(self).data
+  end 
 end

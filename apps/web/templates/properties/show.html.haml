@@ -21,6 +21,13 @@
     .tile.is-child.box
       = image property_map
 
+.tile.is-ancestor
+  .tile.is-parent
+    .tile.is-child.box
+      %canvas{ id: 'property-ratings', width: '900', height: '300' }
+      Graph goes here
+
 =render partial: 'ratings/form_modal'
 
 =javascript 'rating', type: 'text/javascript'
+=javascript 'rating_data', type: 'text/javascript'

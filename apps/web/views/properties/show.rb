@@ -22,5 +22,9 @@ module Web::Views::Properties
     def rating_modal_form
       Form.new(:property_ratings, "#{property.id}/ratings")
     end
+
+    def graph_data
+      rating_data.to_json
+    end
   end
 end
