@@ -1,0 +1,12 @@
+{
+  "name": "PropertyFinder",
+  "version": "0.0.1",
+  "devDependencies": {
+    "css-loader": "^2.1.1",
+    "stats-webpack-plugin": "*",
+    "style-loader": "^0.23.1",
+    "webpack": "*",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "*"
+  }
+}
