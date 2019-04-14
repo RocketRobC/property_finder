@@ -2,7 +2,6 @@
 <html>
   <head>
     <title>Web</title>
-    <script src="<%= webpack_asset_path('application') %>"></script>
     <link rel="stylesheet" type="text/css" href="http://localhost:3020/styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
@@ -14,4 +13,7 @@
       </div>
     </div>
   </body>
+
+  <%# So we can inject JS before we load our main JS package %>
+  <script src="<%= webpack_asset_path('application') %>"></script>
 </html>
