@@ -14,9 +14,9 @@ module Web::Views::Properties
       unless property.has_saved_map?
         property.get_map
       end
-      "#{property.street_no}_#{property.street_name.downcase.sub(' ', '_')}.jpg"
+      "#{property.street_no}_#{property.street_name.downcase.split(' ').join('_')}.jpg"
     rescue RuntimeError => e
-      e.message
+      Hanami.logger.info("Map load failed: #{e.message}")
     end
 
     def rating_modal_form

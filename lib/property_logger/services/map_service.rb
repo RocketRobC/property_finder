@@ -29,7 +29,7 @@ class MapService
   end
 
   def file_path
-    File.join(Hanami.root, 'apps', 'web', 'assets', 'images', "#{@number}_#{@street.downcase.sub(' ', '_')}.jpg")
+    File.join(Hanami.root, 'apps', 'web', 'assets', 'images', "#{@number}_#{@street.downcase.split(' ').join('_')}.jpg")
   end
 
   def params
