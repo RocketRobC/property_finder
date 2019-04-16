@@ -1,6 +1,9 @@
 - [ ] validity checks in controllers
 - [ ] move view logic to views
-- [ ] criteria model
+- [x] criteria model
 - [ ] agent model
-- [ ] rating model
+- [x] rating model
 - [ ] scrape domain for property data
+- [ ] rating modal needs to be scrollable
+- [ ] improve layout of property show page weighted avg and score
+- [ ] fix colours for averages chart

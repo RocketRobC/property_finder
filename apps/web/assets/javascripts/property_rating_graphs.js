@@ -26,7 +26,7 @@ function loadChart(data) {
         {
           label: 'Average score',
           data: data.map(obj => {
-            return obj.weighted_avg;
+            return obj.raw_avg;
           }),
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',

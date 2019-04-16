@@ -19,6 +19,16 @@ module PropertyRatingService
       end
     end
 
+    # TODO: fix this calculation. Should it average for all users?
+    def overall_weighted_rating
+      puts @ratings.inspect
+      @ratings.group_by(&:evaluation_criteria_id).sum do |criteria_group|
+        criteria = EvaluationCriteriaRepository.new.find(criteria_group[0])
+        calc = Calculator.new(ratings_for(criteria_group), criteria)
+        calc.weighted_avg_all_users
+      end
+    end
+
     private
 
     def ratings_for(group)

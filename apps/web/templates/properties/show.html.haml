@@ -13,13 +13,27 @@
       %table.table.is-fullwidth
         - property.features.each do |feature|
           %tr
-            %td.has-text-weight-bold= feature.name
-            %td= property_features.value_for_feature(feature.id)
+            %td= feature.name
+            %td.has-text-weight-bold= property_features.value_for_feature(feature.id)
             %td= property_features.note_for_feature(feature.id)
 
   .tile.is-parent
     .tile.is-child.box
       = image property_map
+
+.tile.is-ancestor
+  .tile.is-parent
+    .tile.is-child.box
+      %p.title.is-4= 'Weighted Ratings'
+      %table.table.is-fullwidth
+        - rating_data.each do |data|
+          %tr
+          %td= data[:criteria_description]
+          %td.has-text-weight-bold= data[:weighted_avg]
+  .tile.is-parent
+    .tile.is-child.box
+      %div.title.is-4= 'Score'
+      %div.title.is-1= overall_rating
 
 .tile.is-ancestor
   .tile.is-parent
