@@ -5,6 +5,8 @@ gem 'hanami',       '~> 1.3'
 gem 'hanami-model', '~> 1.3'
 gem 'bcrypt'
 
+gem 'aws-sdk-s3'
+
 gem 'pg'
 
 gem 'haml'

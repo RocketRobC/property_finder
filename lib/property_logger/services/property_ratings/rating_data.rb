@@ -19,7 +19,7 @@ module PropertyRatingService
       end
     end
 
-    # TODO: fix this calculation. Should it average for all users?
+    # TODO: fix this calculation. Should it average by number of criteria?
     def overall_weighted_rating
       puts @ratings.inspect
       @ratings.group_by(&:evaluation_criteria_id).sum do |criteria_group|

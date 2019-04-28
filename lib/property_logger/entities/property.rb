@@ -4,7 +4,7 @@ class Property < Hanami::Entity
   end
 
   def address_underscored
-    "#{street_no}_#{street_name.downcase.sub(' ', '_')}"
+    "#{street_no}_#{street_name.downcase.gsub(' ', '_')}"
   end
 
   def with_property_feature(id)
@@ -31,9 +31,7 @@ class Property < Hanami::Entity
   end
 
   def has_saved_map?
-    File.exists?(File.join(Hanami.root, 'apps', 'web',
-      'assets', 'images',
-      "#{address_underscored}.jpg"))
+    S3Service.new.object_exists?(address_underscored)
   end
 
   def ratings_for_user(user_id)

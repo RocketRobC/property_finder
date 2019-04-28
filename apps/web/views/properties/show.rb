@@ -14,7 +14,8 @@ module Web::Views::Properties
       unless property.has_saved_map?
         property.get_map
       end
-      "#{property.street_no}_#{property.street_name.downcase.split(' ').join('_')}.jpg"
+      file_name = "#{property.street_no}_#{property.street_name.downcase.split(' ').join('_')}.jpg"
+      S3Service.new.presigned_url_for(file_name)
     rescue RuntimeError => e
       Hanami.logger.info("Map load failed: #{e.message}")
     end
