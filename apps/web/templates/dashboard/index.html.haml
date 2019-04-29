@@ -1,3 +1,14 @@
 %h1.title= 'Dashboard'
 
-%p= 'Cool stuff under construction'
+.tile.is-ancestor
+  .tile.is-parent.is-vertical
+    .tile.is-child.notification.is-primary
+      %h2.title.is-2
+        = top_three_ranked_properties.first[:rating]
+      %p.subtitle
+        = top_three_ranked_properties.first[:address]
+      %hr
+      - top_three_ranked_properties.last(2).each do |property|
+        %p.title.is-3
+          = property[:rating]
+        %p.subtitle.is-6.is-spaced= property[:address]

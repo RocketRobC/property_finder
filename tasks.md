@@ -7,4 +7,4 @@
 - [ ] rating modal needs to be scrollable
 - [ ] improve layout of property show page weighted avg and score
 - [ ] fix colours for averages chart
-- [ ] upload map images to S3
+- [x] upload map images to S3

@@ -7,12 +7,14 @@
       %tr
         %th= 'Street'
         %th= 'Suburb'
+        %th= 'Rating'
         %th
       - properties&.each do |property|
         %tr
           %td
             =link_to property.address, routes.property_path(property.id)
           %td= property.suburb
+          %td= property_rating(property)
           %td
             =link_to 'Edit', routes.edit_property_path(property.id)
             =form_for :property, routes.property_path(property.id), method: :delete do

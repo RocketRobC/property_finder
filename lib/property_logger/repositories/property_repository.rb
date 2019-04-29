@@ -18,11 +18,25 @@ class PropertyRepository < Hanami::Repository
     aggregate(:ratings).where(id: id).map_to(Property).one
   end
 
+  def with_ratings
+    assoc(:ratings)
+  end
+
   def create_with_features(data)
     assoc(:property_features).create(data)
   end
 
   def update_with_features(property, data)
     assoc(:property_features, property).add(data)
+  end
+
+  def ranked_list
+    all.map do |property|
+      prop_with_ratings = find_with_ratings(property.id)
+      {
+        rating: PropertyRatingService::RatingData.new(prop_with_ratings).overall_weighted_rating, 
+        address: property.address
+      }
+    end.sort_by { |p| p[:rating] }.reverse
   end
 end
