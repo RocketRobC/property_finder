@@ -4,9 +4,12 @@
   .tile.is-parent.is-vertical
     .tile.is-child.notification.is-primary
       %h2.title.is-2
-        = top_three_ranked_properties.first[:rating]
+        - if top_three_ranked_properties.empty?
+          = 'No Available Properties'
+        - else
+          = top_three_ranked_properties.first.fetch(:rating)
       %p.subtitle
-        = top_three_ranked_properties.first[:address]
+        = top_three_ranked_properties.first&.fetch(:address)
       %hr
       - top_three_ranked_properties.last(2).each do |property|
         %p.title.is-3

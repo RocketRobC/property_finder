@@ -8,6 +8,7 @@
         %th= 'Street'
         %th= 'Suburb'
         %th= 'Rating'
+        %th= 'Available?'
         %th
       - properties&.each do |property|
         %tr
@@ -15,6 +16,11 @@
             =link_to property.address, routes.property_path(property.id)
           %td= property.suburb
           %td= property_rating(property)
+          %td
+            - if property.available
+              .tag.is-primary= 'Yes'
+            - else
+              .tag.is-danger= 'No'
           %td
             =link_to 'Edit', routes.edit_property_path(property.id)
             =form_for :property, routes.property_path(property.id), method: :delete do
