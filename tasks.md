@@ -8,3 +8,6 @@
 - [ ] improve layout of property show page weighted avg and score
 - [ ] fix colours for averages chart
 - [x] upload map images to S3
+- [ ] Add property price model
+- [ ] FIX issues with financial data error when available funds is 0
+- [ ] Calculations for price/m2, price/max spend, points/m2 etc...
