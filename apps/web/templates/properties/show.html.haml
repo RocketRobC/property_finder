@@ -10,12 +10,22 @@
       %p= property.description
     .tile.is-child.box
       %p.title.is-4= 'Features'
-      %table.table.is-fullwidth
-        - property.features.each do |feature|
-          %tr
-            %td= feature.name
-            %td.has-text-weight-bold= property_features.value_for_feature(feature.id)
-            %td= property_features.note_for_feature(feature.id)
+      .level
+        .level-item.has-text-centered
+          %div
+            %p.heading= 'Land Size'
+            %p.title.is-5= property.formatted_land_size
+        .level-item.has-text-centered
+          %div
+            %p.heading= 'House Size'
+            %p.title.is-5= property.formatted_house_size
+
+      .level
+        - property.features.each do |f|
+          .level-item.has-text-centered
+            %div
+              %p.heading= f.name
+              %p.title.is-5= property_features.value_for_feature(f.id)
 
   .tile.is-parent
     .tile.is-child.box

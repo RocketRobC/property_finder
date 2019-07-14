@@ -7,6 +7,14 @@ class Property < Hanami::Entity
     "#{street_no}_#{street_name.downcase.gsub(' ', '_')}"
   end
 
+  def formatted_land_size
+    format_m2(land_size)
+  end
+
+  def formatted_house_size
+    format_m2(house_size)
+  end
+
   def with_property_feature(id)
     property_features.select { |f| f.feature_id == id }.first
   end
@@ -51,4 +59,10 @@ class Property < Hanami::Entity
   def aggregated_ratings
     PropertyRatingService::RatingData.new(self).data
   end 
+
+  private
+
+  def format_m2(value)
+    value.to_s + ' m2'
+  end
 end

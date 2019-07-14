@@ -20,3 +20,5 @@ resources :properties do
 end
 
 resources :evaluation_criteria
+
+resources :financial_data

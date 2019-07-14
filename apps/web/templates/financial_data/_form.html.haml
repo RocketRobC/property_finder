@@ -1,0 +1,7 @@
+= form_for :financial_data, routes.financial_datum_path(id: financial_data.id), method: :patch, values: { financial_data: financial_data } do
+  - section class: 'modal-card-body' do
+    - label 'Total Funds ($)', class: 'label'
+    - number_field :total_funds_in_dollars, class: 'input'
+  - footer class: 'modal-card-foot' do
+    - submit 'Save', title: 'Save', class: 'button is-primary'
+    - button 'Cancel', title: 'Cancel', class: 'button', id: 'cancel', type: 'reset'

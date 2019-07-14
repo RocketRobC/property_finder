@@ -1,5 +1,5 @@
-const modal = document.getElementById('modal-rating')
-const rating_button = document.getElementById('trigger-rating')
+const modal = document.getElementById('modal-update')
+const trigger_link = document.getElementById('trigger-edit')
 const cancel = document.getElementById('cancel')
 
 const open_modal = function() {
@@ -10,5 +10,5 @@ const close_modal = function() {
   modal.classList.remove('is-active');
 };
 
-rating_button.onclick = open_modal
+trigger_link.onclick = open_modal
 cancel.onclick = close_modal

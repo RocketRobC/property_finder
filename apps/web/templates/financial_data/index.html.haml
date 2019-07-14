@@ -1,0 +1,22 @@
+.buttons.is-pulled-right
+  .button.is-primary#trigger-edit= 'Edit Available Funds'
+%h1.title= 'Finances'
+  
+.section
+  .level.box
+    .level-item.has-text-centered
+      %div
+        %p.heading= 'Total Available Funds'
+        %p.title.is-4= formatted_total_funds
+    .level-item.has-text-centered
+      %div
+        %p.heading= 'Maximum Spend Amount'
+        %p.title.is-4= formatted_max_spend
+    .level-item.has-text-centered
+      %div
+        %p.heading= 'Stamp Duty'
+        %p.title.is-4= formatted_stamp_duty
+
+= render partial: 'financial_data/modal_form'
+
+= javascript 'financial_data', type: 'text/javascript'
