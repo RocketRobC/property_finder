@@ -27,5 +27,16 @@ module Web::Views::Properties
     def graph_data
       rating_data.to_json
     end
+
+    def formatted_current_price
+      format_dollars(current_price&.amount_in_dollars) || 'No Price'
+    end
+
+    private
+
+    def format_dollars(amount)
+      return unless amount
+      '$' + format_number(amount)
+    end
   end
 end

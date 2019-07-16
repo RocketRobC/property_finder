@@ -1,0 +1,16 @@
+.buttons.is-pulled-right
+  = link_to 'Add New Price', routes.new_property_price_path(property_id: property.id), class: 'button is-primary'
+%p.title= title
+
+.section
+  .container
+    %table.table.is-hoverable.is-fullwidth
+      %tr
+        %th= 'Price'
+        %th= 'Date Set'
+        %th= 'Type'
+      - price_history&.each do |price|
+        %tr
+          %td= formatted_amount(price.amount_in_dollars)
+          %td= price.set_at
+          %td= price.type

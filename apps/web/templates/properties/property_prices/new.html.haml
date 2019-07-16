@@ -1,0 +1,22 @@
+%h1.title= 'Add a new price'
+
+.section
+  .container
+    .field
+      .control
+        =form_for :property_prices, routes.property_prices_path(property_id: property.id), method: :post do
+
+          - div class: 'field' do
+            - label 'Amount', class: 'label'
+            - number_field :amount_in_dollars, class: 'input control'
+
+          - div class: 'field' do
+            - label 'Date Set', class: 'label'
+            - date_field :set_at, class: 'input control'
+
+          - div class: 'field' do
+            - label 'Type', class: 'label'
+            - select :type, types, class: 'input control'
+
+          - div class: 'control' do
+            - submit 'Save', class: 'button is-primary'

@@ -18,12 +18,12 @@ module Web
 
         private
 
-        def format_dollars(amount)
-          '$' + format_number(amount)
-        end
-
         def duty_and_max_spend
           @duty_and_max ||= financial_data.duty_and_max
+        end
+
+        def format_dollars(amount)
+          '$' + format_number(amount)
         end
       end
     end

@@ -2,7 +2,7 @@ module Web::Controllers::Properties
   class Show
     include Web::Action
 
-    expose :property, :property_features, :evaluation_criteria, :rating_data, :overall_rating
+    expose :property, :property_features, :evaluation_criteria, :rating_data, :overall_rating, :current_price
 
     def call(params)
       properties = PropertyRepository.new
@@ -12,6 +12,7 @@ module Web::Controllers::Properties
       @evaluation_criteria = EvaluationCriteriaRepository.new.all
       @rating_data = PropertyRatingService::RatingData.new(property_with_ratings).data
       @overall_rating = PropertyRatingService::RatingData.new(property_with_ratings).overall_weighted_rating
+      @current_price = PropertyPriceRepository.new.current_for_property(params[:id])
     end
   end
 end

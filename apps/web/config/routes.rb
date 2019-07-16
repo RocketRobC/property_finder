@@ -17,6 +17,7 @@ resources :properties do
   member do
     get 'rating_data'
   end
+  resources :property_prices, as: :property_prices
 end
 
 resources :evaluation_criteria

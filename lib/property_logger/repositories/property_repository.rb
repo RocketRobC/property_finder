@@ -4,6 +4,7 @@ class PropertyRepository < Hanami::Repository
     has_many :property_features
     has_many :evaluation_criteria, through: :ratings
     has_many :ratings
+    has_many :property_prices
   end
 
   def find_with_features(id)

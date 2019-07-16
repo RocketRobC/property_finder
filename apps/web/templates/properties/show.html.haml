@@ -7,6 +7,8 @@
           Rate
       %p.title= address
       %p.subtitle= suburb_and_postcode
+      %p.title.is-4= formatted_current_price
+      = link_to 'Price History', routes.property_prices_path(property_id: property.id)
       %p= property.description
     .tile.is-child.box
       %p.title.is-4= 'Features'
