@@ -7,11 +7,9 @@
           Rate
       %p.title= address
       %p.subtitle= suburb_and_postcode
-      %p.title.is-4= formatted_current_price
+      %p.has-text-weight-bold.is-size-5= current_price_text
       = link_to 'Price History', routes.property_prices_path(property_id: property.id)
-      %p= property.description
-    .tile.is-child.box
-      %p.title.is-4= 'Features'
+      %hr
       .level
         .level-item.has-text-centered
           %div
@@ -21,13 +19,17 @@
           %div
             %p.heading= 'House Size'
             %p.title.is-5= property.formatted_house_size
-
+      %hr
       .level
         - property.features.each do |f|
           .level-item.has-text-centered
             %div
               %p.heading= f.name
               %p.title.is-5= property_features.value_for_feature(f.id)
+
+    .tile.is-child.box
+      %p.title.is-4= 'Description'
+      %p= property.description
 
   .tile.is-parent
     .tile.is-child.box

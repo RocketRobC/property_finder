@@ -1,5 +1,6 @@
 .buttons.is-pulled-right
   = link_to 'Add New Price', routes.new_property_price_path(property_id: property.id), class: 'button is-primary'
+  = link_to 'Back', routes.property_path(property.id), class: 'button is-info'
 %p.title= title
 
 .section

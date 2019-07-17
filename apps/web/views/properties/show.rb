@@ -29,7 +29,16 @@ module Web::Views::Properties
     end
 
     def formatted_current_price
-      format_dollars(current_price&.amount_in_dollars) || 'No Price'
+      format_dollars(current_price&.amount_in_dollars)
+    end
+
+    def current_price_text
+      return 'No price is set for this property.' if current_price.nil?
+      if current_price.type == 'guide'
+        'The current guide is ' + formatted_current_price
+      elsif current_price.type == 'sale'
+        'This property sold for ' + formatted_current_price
+      end
     end
 
     private
