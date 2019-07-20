@@ -41,6 +41,13 @@ module Web::Views::Properties
       end
     end
 
+    def price_per_m2
+      price = ValueCalculationService::Calculator.new(property).
+        per_square_meter.round(2)
+      return 'n/a' if price.zero?
+      format_dollars(price)
+    end
+
     private
 
     def format_dollars(amount)

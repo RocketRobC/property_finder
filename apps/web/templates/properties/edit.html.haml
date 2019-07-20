@@ -30,11 +30,11 @@
 
         - div class: 'field' do
           - label 'Land Size (m2)', class: 'label'
-          - number_field :land_size, class: 'input'
+          - number_field :land_size, class: 'input', value: property.land_size || 0, step: 0.1
 
         - div class: 'field' do
           - label 'House Size (m2)', class: 'label'
-          - number_field :house_size, class: 'input'
+          - number_field :house_size, class: 'input', value: property.house_size || 0, step: 0.1
 
         -div class: 'field' do
           - fields_for :property_features do

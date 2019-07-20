@@ -1,4 +1,21 @@
 class Property < Hanami::Entity
+  # attributes do
+  #   attribute :id, Types::Int
+  #   attribute :description, Types::String
+  #   attribute :street_no, Types::String
+  #   attribute :street_name, Types::String
+  #   attribute :suburb, Types::String
+  #   attribute :postcode, Types::String
+  #   attribute :created_at, Types::DateTime
+  #   attribute :updated_at, Types::DateTime
+  #   attribute :notes, Types::String
+  #   attribute :land_size, Types::Form::Float
+  #   attribute :house_size, Types::Form::Float
+  #   attribute :available, Types::Form::Bool
+  #   attribute :ratings, Types::Collection()
+  #   attribute :features, Types::Collection(Types::Coercible::Hash)
+  # end
+
   def address
     "#{street_no} #{street_name}"
   end

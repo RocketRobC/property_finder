@@ -5,9 +5,10 @@
 - [x] rating model
 - [ ] scrape domain for property data
 - [ ] rating modal needs to be scrollable
-- [ ] improve layout of property show page weighted avg and score
+- [x] improve layout of property show page weighted avg and score
 - [ ] fix colours for averages chart
 - [x] upload map images to S3
-- [ ] Add property price model
+- [x] Add property price model
 - [ ] FIX issues with financial data error when available funds is 0
 - [ ] Calculations for price/m2, price/max spend, points/m2 etc...
+- [x] allow empty values for land and house size

@@ -46,8 +46,16 @@
           %td.has-text-weight-bold= data[:weighted_avg]
   .tile.is-parent
     .tile.is-child.box
-      %div.title.is-4= 'Score'
-      %div.title.is-1= overall_rating
+      .level
+        .level-item.has-text-centered
+          %div
+            %p.heading= 'Score'
+            %p.title.is-2= overall_rating
+      %hr
+        .level-item.has-text-centered
+          %div
+            %p.heading= 'Price per m2'
+            %p.title.is-4= price_per_m2
 
 .tile.is-ancestor
   .tile.is-parent
