@@ -12,3 +12,4 @@
 - [ ] FIX issues with financial data error when available funds is 0
 - [ ] Calculations for price/m2, price/max spend, points/m2 etc...
 - [x] allow empty values for land and house size
+- [ ] Fix issue with rating failing when value left empty.

@@ -1,5 +1,5 @@
 module ValueCalculationService
-  class Calculator
+  class LandValueCalculator
     def initialize(property, price = PropertyPriceRepository.new)
       @property = property
       @price_repo = price

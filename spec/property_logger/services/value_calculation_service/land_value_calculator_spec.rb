@@ -1,5 +1,5 @@
 module ValueCalculationService
-  describe Calculator do
+  describe LandValueCalculator do
     let(:timestamp) { Time.parse('2019-07-10 09:00') }
     let(:property_repo) { PropertyRepository.new }
     let(:price_repo) { PropertyPriceRepository.new }
@@ -29,7 +29,7 @@ module ValueCalculationService
       allow(Time).to receive(:now).and_return(timestamp)
     end
 
-    subject { Calculator.new(property) }
+    subject { LandValueCalculator.new(property) }
 
     it 'calculates price per square meter of land' do
       create_price
